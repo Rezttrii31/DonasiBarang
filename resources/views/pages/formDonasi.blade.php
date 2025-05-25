@@ -4,23 +4,24 @@
     <section class="max-w-3xl mx-auto px-6 py-16">
   <h2 class="text-3xl font-bold text-green-700 text-center mb-8">Formulir Donasi Barang</h2>
   @if(session('success'))
-  <div class="bg-green-100 border-l-4 border-green-600 text-green-800 p-4 mb-6 rounded">
+  <div class="bg-white border-l-4 border-green-600 text-green-800 p-4 mb-6 rounded">
     {{ session('success') }}
   </div>
-@endif
+  @endif
 
 {{-- Tambahkan error message jika validasi gagal --}}
-@if($errors->any())
-  <div class="bg-red-100 border-l-4 border-red-600 text-red-800 p-4 mb-6 rounded">
-    <ul class="list-disc list-inside">
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-@endif
+  @if($errors->any())
+    <div class="bg-red-100 border-l-4 border-red-600 text-red-800 p-4 mb-6 rounded">
+      <ul class="list-disc list-inside">
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 
-  <form action="/submit-donasi" method="POST" class="bg-white p-8 rounded-xl shadow-md space-y-6">
+  <form action="{{ route('donasi.simpan') }}" method="POST" class="bg-white p-8 rounded-xl shadow-md space-y-6">
+    @csrf
     <!-- Nama Donatur -->
     <div>
       <label for="nama" class="block font-medium text-gray-700 mb-1">Nama Lengkap</label>

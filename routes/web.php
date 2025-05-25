@@ -5,7 +5,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\DonasiController;
 
 Route::post('/kontak/kirim', [KontakController::class, 'kirimPesan'])->name('kontak.kirim');
-Route::post('/submit-donasi', [DonasiController::class, 'submit'])->name('donasi.submit');
+Route::post('/submit-donasi', [DonasiController::class, 'simpan'])->name('donasi.simpan');
 Route::get('/', function () {
     return view('pages.beranda');
 });

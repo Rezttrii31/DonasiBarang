@@ -14,10 +14,6 @@ class KontakController extends Controller
         'email' => 'required|email',
         'pesan' => 'required|string|max:1000',
     ]);
-
-    // Simpan ke database (opsional)
-    // Pesan::create($validated);
-
     return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
 }
 

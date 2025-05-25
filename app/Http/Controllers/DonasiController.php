@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DonasiController extends Controller
 {
-    public function submit(Request $request)
+    public function simpan(Request $request)
     {
         // Validasi input
         $validated = $request->validate([
@@ -17,10 +17,6 @@ class DonasiController extends Controller
             'jenis_barang' => 'required|string',
             'deskripsi' => 'nullable|string|max:1000',
         ]);
-
-        // Simpan ke database jika punya model Donasi (opsional)
-        // Donasi::create($validated);
-
         // Kembali ke halaman form dengan pesan sukses
         return back()->with('success', 'Terima kasih! Donasi Anda telah kami terima.');
     }

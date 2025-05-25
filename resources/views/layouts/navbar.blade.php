@@ -9,13 +9,11 @@
 
       <!-- Menu Desktop -->
       <ul class="hidden lg:flex space-x-6 items-center font-medium ml-auto">
-        <li><a href="/" class="hover:text-yellow-300 transition">Beranda</a></li>
-        <li><a href="/layanan" class="hover:text-yellow-300 transition">Layanan</a></li>
-        <li><a href="/about" class="hover:text-yellow-300 transition">Tentang Kami</a></li>
-        <li><a href="/kontak" class="hover:text-yellow-300 transition">Hubungi Kami</a></li>
-        <li><a href="/galeri" class="hover:text-yellow-300 transition">Galeri</a></li>
-        <li>
-        </li>
+        <li><a href="/" class="nav-link hover:text-yellow-300 transition">Beranda</a></li>
+        <li><a href="/layanan" class="nav-link hover:text-yellow-300 transition">Layanan</a></li>
+        <li><a href="/about" class="nav-link hover:text-yellow-300 transition">Tentang Kami</a></li>
+        <li><a href="/kontak" class="nav-link hover:text-yellow-300 transition">Hubungi Kami</a></li>
+        <li><a href="/galeri" class="nav-link hover:text-yellow-300 transition">Galeri</a></li>
       </ul>
 
       <!-- Hamburger -->
@@ -33,29 +31,40 @@
   <!-- Menu Mobile -->
   <div id="menu-mobile" class="lg:hidden bg-green-500 px-4 pb-4 hidden rounded-b-xl">
     <ul class="flex flex-col space-y-3 font-medium">
-      <li><a href="/" class="block py-2 px-4 rounded hover:bg-green-600">Beranda</a></li>
-      <li><a href="/about" class="block py-2 px-4 rounded hover:bg-green-600">About</a></li>
-      <li><a href="/layanan" class="block py-2 px-4 rounded hover:bg-green-600">Layanan</a></li>
-      <li><a href="/kontak" class="block py-2 px-4 rounded hover:bg-green-600">Hubungi Kami</a></li>
-      <li><a href="/galeri" class="block py-2 px-4 rounded hover:bg-green-600">Galeri</a></li>
-      <li>
-      </li>
+      <li><a href="/" class="nav-link block py-2 px-4 rounded hover:bg-green-600">Beranda</a></li>
+      <li><a href="/about" class="nav-link block py-2 px-4 rounded hover:bg-green-600">Tentang Kami</a></li>
+      <li><a href="/layanan" class="nav-link block py-2 px-4 rounded hover:bg-green-600">Layanan</a></li>
+      <li><a href="/kontak" class="nav-link block py-2 px-4 rounded hover:bg-green-600">Hubungi Kami</a></li>
+      <li><a href="/galeri" class="nav-link block py-2 px-4 rounded hover:bg-green-600">Galeri</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- Scripts -->
 <script>
-  lucide.createIcons();
+  // Toggle mobile menu
   const menuToggle = document.getElementById('menu-toggle');
   const menuMobile = document.getElementById('menu-mobile');
   const iconBurger = document.getElementById('icon-burger');
   const iconClose = document.getElementById('icon-close');
 
   menuToggle.addEventListener('click', () => {
-    menuMobile.classList.toggle('show');
     menuMobile.classList.toggle('hidden');
     iconBurger.classList.toggle('hidden');
     iconClose.classList.toggle('hidden');
+  });
+
+  // Highlight active link based on current path
+  const normalize = path => path.replace(/\/+$/, '').toLowerCase(); // Remove trailing slash
+  const currentPath = normalize(window.location.pathname);
+  const links = document.querySelectorAll('.nav-link');
+
+  links.forEach(link => {
+    const linkPath = normalize(link.getAttribute('href'));
+    if (linkPath === currentPath) {
+      link.classList.add('text-yellow-300');
+    } else {
+      link.classList.remove('text-yellow-300');
+    }
   });
 </script>
