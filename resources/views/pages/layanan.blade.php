@@ -50,7 +50,7 @@
 
   <div class="mt-12 text-center">
     <a href="/FormDonasi" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition">
-      Donasi Sekarang
+        Donasi Sekarang
     </a>
   </div>
 </section>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-green-100 py-16 min-h-screen">
   <div class="container mx-auto px-6 max-w-5xl">
-    <h2 class="text-4xl font-extrabold text-green-700 mb-6 text-center ">
+    <h2 class="text-4xl font-extrabold text-green-700 mb-6 text-center">
       Hubungi Kami
     </h2>
 
@@ -39,6 +39,22 @@
               </div>
             </li>
           </ul>
+
+          <!-- Peta Lokasi -->
+          <div class="mt-10">
+            <h2 class="text-2xl font-semibold text-green-600 mb-4 text-center">Lokasi Kami</h2>
+            <div class="w-full h-96 rounded-3xl overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.0301730503!2d109.32881504999999!3d-0.029093549999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d593fbe273ad1%3A0xf83e5c7d154ffed6!2sJl.%20Ahmad%20Yani%2C%20Pontianak%2C%20Kalimantan%20Barat!5e0!3m2!1sen!2sid!4v1716738579470!5m2!1sen!2sid"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
         </div>
 
         <!-- Form Kontak -->
@@ -46,31 +62,30 @@
           <h2 class="text-2xl font-semibold text-green-600 mb-6">Kirim Pesan</h2>
           @if(session('success'))
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded">
-                {{ session('success') }}
+              {{ session('success') }}
             </div>
           @endif
 
           <form action="{{ route('kontak.kirim') }}" method="POST" class="space-y-4">
             @csrf
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
-                <input type="text" name="nama" class="w-full px-4 py-2 border rounded-lg" required>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+              <input type="text" name="nama" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" name="email" class="w-full px-4 py-2 border rounded-lg" required>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" name="email" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
-                <textarea name="pesan" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+              <textarea name="pesan" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
             </div>
             <div>
-                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
-                    Kirim
-                </button>
+              <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
+                Kirim
+              </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
